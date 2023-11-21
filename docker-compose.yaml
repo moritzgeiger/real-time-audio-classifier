@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  audio_classifier:
+    container_name: audio_classifier
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - ./keras_yamnet:/keras_yamnet
+    stdin_open: true
+    # TODO: get microphone mounted
+    # devices:
+      # - "/dev/snd:/dev/snd" 
+
+volumes:
+  keras_yamnet:
