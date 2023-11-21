@@ -5,29 +5,33 @@ This repo bases on previous work from [robertanto](https://github.com/robertanto
 
 ## Getting started
 
+This package was tested with Python 3.9
 Make sure you have [`portaudio`](https://formulae.brew.sh/formula/portaudio) installed. 
 
 With brew: 
 ```bash
 brew install portaudio
 ```
-Execute the following commands to setup you project.
 
+Create a Python environment: 
+```bash 
+python3 -m venv .env
+source .env/bin/activate
+```
+
+Execute the following commands to install the package:
 ```bash 
 git clone https://github.com/moritzgeiger/real-time-audio-classifier.git
 cd real-time-audio-classifier
 pip3 install -e . 
 ```
 
-At this point you have only to execute the demo by running the following command:
-
+Execute the following command:
 ```bash 
 audio-classifier
 ```
 
-### Change the classes to detect
-
-
+### Change the detectable classes
 ```bash
 audio-classifier --classes 0 132 420 494 # Speech, Music, Explosion, Silence 
 ```
