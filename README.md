@@ -3,8 +3,6 @@
 This repository contains the python implementation of a Sound Event Detection system working in real time. 
 This repo bases on previous work from [robertanto](https://github.com/robertanto/Real-Time-Sound-Event-Detection)
 
-<img src="./static/demo.png" style="max-width:600px; width:100%">
-
 ## Getting started
 
 Execute the following commands to setup you project.
@@ -28,5 +26,5 @@ audio-classifier
 audio-classifier --classes 0 132 420 494 # Speech, Music, Explosion, Silence 
 ```
 
-You can find the full list of 521 audio events in the [class file](./src/audio_classifier/data/yamnet_class_map.csv)
+You can find the full list of 521 audio events in the [class file](./src/audio_classifier/data/audioset_class_map.csv)
 The full source of the cluster mapping is [here](https://github.com/audioset/ontology/blob/master/ontology.json)
