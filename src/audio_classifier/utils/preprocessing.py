@@ -6,6 +6,15 @@ from audio_classifier.data import params
 
 
 def preprocess_input(waveform: np.ndarray, sr: int):
+    """preprocesses input array.
+
+    Args:
+        waveform (np.ndarray): _description_
+        sr (int): _description_
+
+    Returns:
+        _type_: _description_
+    """
     inp = (
         waveform
         if sr == params.SAMPLE_RATE

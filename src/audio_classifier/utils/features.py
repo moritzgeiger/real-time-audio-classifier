@@ -5,7 +5,6 @@ from audio_classifier.data import params
 _MEL_BREAK_FREQUENCY_HERTZ: float = 700.0
 _MEL_HIGH_FREQUENCY_Q: float = 1127.0
 
-
 def _np_hann_periodic_window(length: int) -> np.ndarray:
     """
     Generates a Hann window of a given length.
@@ -25,7 +24,6 @@ def _np_hann_periodic_window(length: int) -> np.ndarray:
     if not odd:
         window = window[:-1]
     return window
-
 
 def _np_frame(data: np.ndarray, window_length: int, hop_length: int) -> np.ndarray:
     """

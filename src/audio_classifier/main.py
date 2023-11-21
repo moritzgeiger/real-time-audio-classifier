@@ -7,14 +7,15 @@ import pandas as pd
 import sounddevice as sd
 
 from audio_classifier.data import params
-from audio_classifier.utils.yamnet import YAMNet, class_names
+from audio_classifier.utils.yamnet import YAMNet
+from audio_classifier.utils.utils import read_class_names
 from audio_classifier.utils.preprocessing import preprocess_input
 # from audio_classifier.utils.plot import Plotter
 
 
 #################### MODEL #####################
 # absolute paths
-YAMNET_CLASSES = class_names("./src/audio_classifier/data/audioset_class_map.csv")
+YAMNET_CLASSES = read_class_names("./src/audio_classifier/data/audioset_class_map.csv")
 
 FORMAT = pyaudio.paFloat32
 CHANNELS = 1
@@ -48,7 +49,9 @@ def main():
     class_labels = True
     print(sd.query_devices())
 
-    model = YAMNet(weights="./src/audio_classifier/data/yamnet.h5")
+    model = YAMNet(
+        weights="./src/audio_classifier/data/yamnet.h5"
+        ).get_model()
 
     #################### STREAM ####################
     audio = pyaudio.PyAudio()
@@ -67,13 +70,13 @@ def main():
     try:
         if plt_classes_choice:
             plt_classes = plt_classes_choice
-            plt_classes_lab = {k: v for k,v in YAMNET_CLASSES.items() if k in plt_classes_choice}
-            n_classes = len(plt_classes_choice)
+            # plt_classes_lab = {k: v for k,v in YAMNET_CLASSES.items() if k in plt_classes_choice}
+            # n_classes = len(plt_classes_choice)
 
         else:
             plt_classes = PLT_CLASSES
-            plt_classes_lab = YAMNET_CLASSES if class_labels else None
-            n_classes = len(YAMNET_CLASSES)
+            # plt_classes_lab = YAMNET_CLASSES if class_labels else None
+            # n_classes = len(YAMNET_CLASSES)
 
         # monitor = Plotter(n_classes=n_classes, fig_size=(12, 6), msd_labels=plt_classes_lab)
 

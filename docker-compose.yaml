@@ -6,11 +6,14 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - ./keras_yamnet:/keras_yamnet
+      - ./src/audio_classifier:/src/audio_classifier
+      - $HOME/.config/pulse:/home/.config/pulse
     stdin_open: true
     # TODO: get microphone mounted
-    # devices:
-      # - "/dev/snd:/dev/snd" 
+    environment:
+      - PULSE_SERVER=host.docker.internal
+    entrypoint: ["tail", "-f", "/dev/null"]
+    
 
 volumes:
-  keras_yamnet:
+  audio_classifier:
