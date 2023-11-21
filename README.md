@@ -5,6 +5,12 @@ This repo bases on previous work from [robertanto](https://github.com/robertanto
 
 ## Getting started
 
+Make sure you have [`portaudio`](https://formulae.brew.sh/formula/portaudio) installed. 
+
+With brew: 
+```bash
+brew install portaudio
+```
 Execute the following commands to setup you project.
 
 ```bash 
